@@ -1,7 +1,7 @@
 import * as Types from "../../core/types";
-import { customElement } from "aurelia-framework";
+import { valueConverter } from "aurelia-framework";
 
-@customElement("parse-json")
+@valueConverter("parse-json")
 export class ParseJson {
     public toView(text: string): Object {
         if (Types.isString(text)) {

@@ -1,7 +1,7 @@
 import * as Types from "../../core/types";
-import { customElement } from "aurelia-framework";
+import { valueConverter } from "aurelia-framework";
 
-@customElement("parse-boolean")
+@valueConverter("parse-boolean")
 export class ParseBoolean {
     public toView(input: any, falseyValuesAsFalse: boolean = true): any {
         if (falseyValuesAsFalse === true && Types.isUndefinedOrNull(input)) {

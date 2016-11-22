@@ -3,9 +3,9 @@ import * as Types from "../../core/types";
 const int32MaxValue = 2147483647; // max UNIX date (seconds)
 const momentMaxValue = int32MaxValue * 1000; // max moment date (milliseconds)
 
-import { customElement } from "aurelia-framework";
+import { valueConverter } from "aurelia-framework";
 
-@customElement("format-date")
+@valueConverter("format-date")
 export class FormatDate {
     public toView(value, format) {
         let f = format || "YYYY-MM-DD HH:mm:ss";

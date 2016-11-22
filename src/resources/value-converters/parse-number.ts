@@ -1,7 +1,7 @@
 import * as Types from "../../core/types";
-import { customElement } from "aurelia-framework";
+import { valueConverter } from "aurelia-framework";
 
-@customElement("parse-number")
+@valueConverter("parse-number")
 export class ParseNumber {
     public toView(text: string, base: number = 10): number {
         if (Types.isString(text)) {

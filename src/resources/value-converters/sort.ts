@@ -1,7 +1,7 @@
 import * as Types from "../../core/types";
-import { customElement } from "aurelia-framework";
+import { valueConverter } from "aurelia-framework";
 
-@customElement("sort")
+@valueConverter("sort")
 export class Sort {
     public toView(arr: Array<any>, propertyName: string, comparison = "ordinalIgnoreCase", direction = "ascending"): Array<any> {
         if (!Types.isArray(arr)) {

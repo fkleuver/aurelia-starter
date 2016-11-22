@@ -144,6 +144,15 @@
             "env": "dev"
           },
           {
+            "name": "aurelia-ux",
+            "path": "../node_modules/aurelia-ux/dist/amd",
+            "main": "index",
+            "resources": [
+              "./button/ux-button.html",
+              "./button/ux-button-theme.css"
+            ]
+          },
+          {
             "name": "lokijs",
             "path": "../node_modules/lokijs/src",
             "main": "lokijs"

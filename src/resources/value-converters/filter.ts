@@ -1,7 +1,7 @@
 import * as Types from "../../core/types";
-import { customElement } from "aurelia-framework";
+import { valueConverter } from "aurelia-framework";
 
-@customElement("filter")
+@valueConverter("filter")
 export class Filter {
     public toView(arr: any[], config: { propertyName: string, value: any }): any {
         if (!Types.isArray(arr)) {

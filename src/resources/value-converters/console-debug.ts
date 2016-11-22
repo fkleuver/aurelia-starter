@@ -1,6 +1,6 @@
-import { customElement } from "aurelia-framework";
+import { valueConverter } from "aurelia-framework";
 
-@customElement("console-debug")
+@valueConverter("console-debug")
 export class ConsoleDebug {
     public toView(value, prefix?) {
         prefix = (prefix ? `:${prefix}` : "");

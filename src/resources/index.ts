@@ -2,9 +2,6 @@ import { FrameworkConfiguration } from "aurelia-framework";
 
 export function configure(config: FrameworkConfiguration, env) {
     config.globalResources([
-        "./attributes/compile-spy",
-        "./attributes/view-spy",
-
         "./binding-behaviors/intercept",
 
         "./elements/dynamic-html",
