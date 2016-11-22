@@ -2,7 +2,11 @@
   "name": "aurelia-starter",
   "dependencies": {},
   "globalDevDependencies": {
-    "jasmine": "registry:dt/jasmine#2.2.0+20160505161446",
-    "node": "registry:dt/node"
+    "jasmine": "registry:dt/jasmine#2.5.0+20161025102649",
+    "node": "registry:dt/node",
+    "wallabyjs": "registry:dt/wallabyjs#0.0.0+20160817101616"
+  },
+  "globalDependencies": {
+    "require": "registry:dt/require#2.1.20+20160919185614"
   }
 }
