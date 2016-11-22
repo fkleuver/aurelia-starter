@@ -3,8 +3,10 @@ import { PLATFORM } from "aurelia-pal";
 import * as Log from "aurelia-logging"
 import { ConsoleAppender } from "aurelia-logging-console"
 import { initialize } from "aurelia-pal-browser";
+import { configure } from "src/core/function-extensions";
 
 initialize();
+configure();
 
 console.log(PLATFORM.global.Promise.version);
 

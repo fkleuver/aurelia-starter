@@ -80,7 +80,7 @@ module.exports = () => {
                 baseUrl: "/",
 
                 paths: {
-                    "text": "scripts/text"
+                    "text": "node_modules/text/text"
                 },
 
                 packages: [
