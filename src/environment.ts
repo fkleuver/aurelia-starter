@@ -1,5 +1,5 @@
 export default {
-  debug: true,
-  testing: true,
-  appinsights: false
+  debug: false,
+  testing: false,
+  appinsights: true
 };
