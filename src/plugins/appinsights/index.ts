@@ -1,3 +1,5 @@
+// Source: https://github.com/colindembovsky/aurelia-appInsights
+
 import { FrameworkConfiguration, LogManager } from "aurelia-framework"
 import { AiAdapter } from "./ai-adapter";
 import { AiLogAppender } from "./ai-log-appender";
