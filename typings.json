@@ -9,6 +9,8 @@
   "globalDependencies": {
     "applicationinsights": "registry:dt/applicationinsights#0.15.12+20160928124223",
     "applicationinsights-js": "registry:dt/applicationinsights-js#0.23.2+20160730040946",
+    "greensock": "registry:dt/greensock#1.15.1+20161010014930",
+    "jquery": "registry:dt/jquery#1.10.0+20160929162922",
     "lokijs": "registry:dt/lokijs#0.0.0+20160316155526",
     "moment": "registry:dt/moment#2.11.1+20161010105546",
     "require": "registry:dt/require#2.1.20+20160919185614"

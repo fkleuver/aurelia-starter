@@ -35,6 +35,8 @@
     "aurelia-templating-resources": "^1.1.1",
     "aurelia-templating-router": "^1.0.0",
     "bluebird": "^3.4.6",
+    "gsap": "^1.19.0",
+    "jquery": "^2.2.4",
     "lokijs": "^1.4.1",
     "moment": "^2.17.0",
     "node-uuid": "^1.4.7",
