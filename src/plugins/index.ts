@@ -1,12 +1,13 @@
 import { FrameworkConfiguration, PLATFORM } from "aurelia-framework";
 
-export function configure(config: FrameworkConfiguration) {
+export function configure(config: FrameworkConfiguration, env) {
     config.aurelia.use
-        .feature("plugins/aurelia")
+        .feature("plugins/appinsights", env)
+        .feature("plugins/aurelia", env)
         .feature("plugins/computed-observation-adapter", {
-            enableLogging: true
+            enableLogging: env.debug
         })
-        .feature("plugins/lokijs")
-        .feature("plugins/moment")
-        .feature("plugins/node-uuid");
+        .feature("plugins/lokijs", env)
+        .feature("plugins/moment", env)
+        .feature("plugins/node-uuid", env);
 }

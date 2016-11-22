@@ -1,3 +1,5 @@
+/// <reference path="globals/applicationinsights-js/index.d.ts" />
+/// <reference path="globals/applicationinsights/index.d.ts" />
 /// <reference path="globals/jasmine/index.d.ts" />
 /// <reference path="globals/lokijs/index.d.ts" />
 /// <reference path="globals/moment/index.d.ts" />

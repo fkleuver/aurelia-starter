@@ -1,5 +1,5 @@
 import { FrameworkConfiguration } from "aurelia-framework";
 
-export function configure(config: FrameworkConfiguration) {
+export function configure(config: FrameworkConfiguration, env) {
   
 }

@@ -1,6 +1,6 @@
 import "aurelia-logging";
 import { Aurelia, PLATFORM, DOM } from "aurelia-framework"
-import environment from "./environment";
+import env from "./environment";
 
 export function configure(aurelia: Aurelia) {
   aurelia.use
@@ -10,10 +10,10 @@ export function configure(aurelia: Aurelia) {
     .router()
     .history()
     .developmentLogging()
-    .feature("plugins")
-    .feature("core")
-    .feature("resources")
-    .feature("shell");
+    .feature("plugins", env)
+    .feature("core", env)
+    .feature("resources", env)
+    .feature("shell", env);
 
   aurelia.start()
     .then(au => {
