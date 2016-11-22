@@ -109,6 +109,7 @@
           "aurelia-task-queue",
           "aurelia-templating",
           "aurelia-templating-binding",
+          "node-uuid",
           "text",
           {
             "name": "aurelia-dialog",

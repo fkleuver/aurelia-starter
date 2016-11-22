@@ -11,7 +11,7 @@ export function configure(aurelia: Aurelia) {
     .history()
     .developmentLogging()
     .feature("plugins")
-    .feature("base")
+    .feature("core")
     .feature("resources")
     .feature("shell");
 
