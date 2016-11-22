@@ -1,0 +1,114 @@
+$outline_color: #f0009c;
+$hover_color: #fee7f6;
+$selected_color: #fdd8f1;
+$font_family: 'Roboto', sans-serif;
+
+%flex_horizontal {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+%flex_vertical {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+%truncate_text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+%no_select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+%outline {
+    outline: $outline_color solid 1px;
+    outline-offset: -1px;
+    box-shadow: inset 0 0 1px 1px $outline_color;
+    border-color: $outline_color;
+
+    border-width: 1px;
+    border-style: solid;
+    box-sizing: border-box;
+}
+
+%custom-scrollbar {
+    &::-webkit-scrollbar-thumb {
+        border-radius:4px;
+        background-color:rgba(0,0,0,.7);
+        box-shadow:0 0 1px rgba(255,255,255,.3);
+
+        &:hover {
+            background-color: #696c70;
+        }
+    }
+    &::-webkit-scrollbar-track-piece {
+        background: 0 0;
+        &:hover {
+            background: 0 0;
+        }
+    }
+    &::-webkit-scrollbar {
+        background: 0 0;
+        &:hover {
+            background: 0 0;
+        }
+        -webkit-appearance:none;
+        width:7px;
+    }
+}
+
+@mixin collection($height, $fontSize, $lineHeight, $sideGutter) {
+    position: relative;
+
+    @extend %flex_vertical;
+    @extend %no_select;
+
+    height: $height;
+    font-size: $fontSize;
+    line-height: $lineHeight;
+
+    width: calc(100% - #{$sideGutter});
+}
+
+@mixin collection-items-container($top, $maxHeight) {
+    @extend %flex_vertical;
+    @extend %custom-scrollbar;
+    
+    width: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+
+    position: absolute;
+    z-index: 99;
+    top: $top;
+    max-height: $maxHeight;
+    
+    border-style: solid;
+}
+
+@mixin collection-item($height, $padLeft, $padTopBottom) {
+    flex: 0 0 $height;
+
+    cursor: pointer;
+    
+    margin: 0;
+    padding: $padTopBottom 0 $padTopBottom $padLeft;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-right: none;
+    border-left: none;
+
+    text-decoration: none;
+    box-sizing: border-box;
+    
+    @extend %truncate_text;
+}
