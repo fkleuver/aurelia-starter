@@ -1,6 +1,9 @@
 <template>
     <require from="./reset.css"></require>
     <div style="width: 30%; margin: 25px;">
-        <dropdownlist options.bind="options" value.two-way="selectedOption"></dropdownlist>
+        <dropdownlist options.bind="optionsFew"></dropdownlist>
+    </div>
+    <div style="width: 30%; margin: 25px;">
+        <dropdownlist options.bind="optionsMany"></dropdownlist>
     </div>
 </template>
