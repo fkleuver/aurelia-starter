@@ -18,8 +18,27 @@
   <title>Aurelia</title>
 </head>
 
-<body aurelia-app="main">
-  <script src="scripts/vendor-bundle.js" data-main="aurelia-bootstrapper"></script>
+<body>
+
+	<div id="aureliaRoot" aurelia-app="main">
+		<script src="scripts\vendor-bundle.js" data-main="aurelia-bootstrapper">
+    </script>
+	</div>
+	<script>
+		(function() {
+			var host = document.querySelector("#aureliaRoot");
+			var uri = window.location.pathname;
+
+			if (uri.startsWith("/admin")) {
+				host.setAttribute("root", "shell/admin");
+			} else {
+				host.setAttribute("root", "shell/frontend");
+			}
+			
+			Promise.config({ warnings: { wForgottenReturn: false }, cancellation: true });
+			window.Bluebird = window.Promise;
+		})();
+  </script>
 </body>
 
 </html>

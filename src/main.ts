@@ -1,26 +1,26 @@
-import { Aurelia } from "aurelia-framework"
+import "aurelia-logging";
+import { Aurelia, PLATFORM, DOM } from "aurelia-framework"
 import environment from "./environment";
-
-//Configure Bluebird Promises.
-(<any>Promise).config({
-  longStackTraces: environment.debug,
-  warnings: {
-    wForgottenReturn: false
-  }
-});
 
 export function configure(aurelia: Aurelia) {
   aurelia.use
-    .standardConfiguration()
-    .feature("resources");
+    .defaultBindingLanguage()
+    .defaultResources()
+    .eventAggregator()
+    .router()
+    .history()
+    .developmentLogging()
+    .feature("plugins")
+    .feature("base")
+    .feature("resources")
+    .feature("shell");
 
-  if (environment.debug) {
-    aurelia.use.developmentLogging();
-  }
+  aurelia.start()
+    .then(au => {
+      const host = au.host;
+      const root = host.attributes["root"].value;
 
-  if (environment.testing) {
-    aurelia.use.plugin("aurelia-testing");
-  }
-
-  aurelia.start().then(() => aurelia.setRoot());
+      au.setRoot(root, host);
+      PLATFORM.global.au = au;
+    });
 }
