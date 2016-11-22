@@ -1,5 +1,5 @@
-import {Aurelia} from 'aurelia-framework'
-import environment from './environment';
+import { Aurelia } from "aurelia-framework"
+import environment from "./environment";
 
 //Configure Bluebird Promises.
 (<any>Promise).config({
@@ -12,14 +12,14 @@ import environment from './environment';
 export function configure(aurelia: Aurelia) {
   aurelia.use
     .standardConfiguration()
-    .feature('resources');
+    .feature("resources");
 
   if (environment.debug) {
     aurelia.use.developmentLogging();
   }
 
   if (environment.testing) {
-    aurelia.use.plugin('aurelia-testing');
+    aurelia.use.plugin("aurelia-testing");
   }
 
   aurelia.start().then(() => aurelia.setRoot());
