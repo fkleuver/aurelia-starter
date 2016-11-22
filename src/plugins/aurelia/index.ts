@@ -8,5 +8,5 @@ export function configure(config: FrameworkConfiguration, configure: Function) {
     logging.configure(config, configure);
     dialog.configure(config, configure);
     testing.configure(config, configure);
-    ux.configure(config, configure);
+    //ux.configure(config, configure);
 }

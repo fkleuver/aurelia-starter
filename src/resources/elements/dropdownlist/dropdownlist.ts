@@ -229,6 +229,7 @@ export class Dropdownlist {
         logger.debug("valueChanged", newValue, oldValue);
 
         this.currentText = this.valueDisplayName;
+        this.setCurrentOption(newValue);
     }
 
     /*
