@@ -8,6 +8,7 @@
   },
   "globalDependencies": {
     "lokijs": "registry:dt/lokijs#0.0.0+20160316155526",
+    "moment": "registry:dt/moment#2.11.1+20161010105546",
     "require": "registry:dt/require#2.1.20+20160919185614"
   }
 }

@@ -7,5 +7,6 @@ export function configure(config: FrameworkConfiguration) {
             enableLogging: true
         })
         .feature("plugins/lokijs")
+        .feature("plugins/moment")
         .feature("plugins/node-uuid");
 }
