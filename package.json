@@ -46,7 +46,7 @@
   },
   "peerDependencies": {},
   "devDependencies": {
-    "aurelia-cli": "^0.22.0",
+    "aurelia-cli": "^0.30.1",
     "aurelia-testing": "^1.0.0-beta.2.0.0",
     "aurelia-tools": "^1.0.0",
     "browser-sync": "^2.18.2",
