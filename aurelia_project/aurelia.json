@@ -102,7 +102,7 @@
           {
             "name": "uuid",
             "path": "../node_modules/uuid",
-            "main": "uuid"
+            "main": "index"
           }
         ]
       }
