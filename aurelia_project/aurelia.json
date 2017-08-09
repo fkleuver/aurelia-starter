@@ -157,7 +157,7 @@
   "unitTestRunner": {
     "id": "karma",
     "displayName": "Karma",
-    "source": "src/**/*.spec.ts"
+    "source": "test/unit/**/*.ts"
   },
   "paths": {
     "root": "src",

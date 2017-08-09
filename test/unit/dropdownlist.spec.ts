@@ -1,18 +1,16 @@
-import "test/unit/setup";
 import { PLATFORM, DOM } from "aurelia-pal";
 import { StageComponent, ComponentTester } from "aurelia-testing";
 import { bootstrap } from "aurelia-bootstrapper";
-import { Dropdownlist } from "./dropdownlist";
+import { Dropdownlist } from "../../src/resources/elements/dropdownlist/dropdownlist";
 
 interface TComponentTester<T> extends ComponentTester {
     viewModel: T;
-    tearDown?: () => void;
 }
 
 const logger = PLATFORM.global.getLogger("dropdownlist.spec.ts");
 const resources = [
-    "src/resources/elements/dropdownlist/dropdownlist",
-    "src/resources/value-converters/filter"
+    "resources/elements/dropdownlist/dropdownlist",
+    "resources/value-converters/filter"
 ];
 const view = "<dropdownlist options.bind='options' value.two-way='value'></dropdownlist>";
 const optionsNullOrEmptyError = "dropdownlist requires a non-empty list of options";
@@ -20,29 +18,28 @@ const optionsNullOrEmptyError = "dropdownlist requires a non-empty list of optio
 function arrange(options: any[], value: any, bind: boolean, attach: boolean) {
     let opt = options;
     let val = value;
+    let ctx = { options: opt, value: val };
 
     return Bluebird
         .resolve<TComponentTester<Dropdownlist>>(StageComponent
             .withResources(resources)
             .inView(view)
-            .boundTo({ options: opt, value: val })
+            .boundTo(ctx)
             .manuallyHandleLifecycle())
         .then(c => {
             return c.create(bootstrap).then(() => Bluebird.resolve(c));
         })
         .then(c => {
             if (bind === true) {
-                return c.bind().then(() => Bluebird.resolve(c));
-            } else {
-                return Bluebird.resolve(c);
+                c.bind(ctx);
             }
+            return Bluebird.resolve(c);
         })
         .then(c => {
             if (attach === true) {
-                return c.attached().then(() => Bluebird.resolve(c));
-            } else {
-                return Bluebird.resolve(c);
+                c.attached();
             }
+            return Bluebird.resolve(c);
         });
 };
 
@@ -232,7 +229,8 @@ describe("dropdownlist", () => {
         beforeEach((done) => {
             arrange(options, options[0], true, true)
                 .then(c => component = c)
-                .then(() => {;
+                .then(() => {
+                    ;
                     done();
                 });
         });
@@ -245,7 +243,7 @@ describe("dropdownlist", () => {
                 code: "Enter"
             }));
             setTimeout(() => {
-                
+
             }, 0);
             component.viewModel.setValue(options[1])
                 .then(() => {
