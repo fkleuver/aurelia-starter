@@ -1,4 +1,5 @@
 import * as Types from "../../core/types";
+import * as moment from "moment";
 
 const int32MaxValue = 2147483647; // max UNIX date (seconds)
 const momentMaxValue = int32MaxValue * 1000; // max moment date (milliseconds)

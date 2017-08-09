@@ -1,4 +1,5 @@
 import * as Types from "../../core/types";
+import * as moment from "moment";
 import { valueConverter } from "aurelia-framework";
 
 @valueConverter("sort")
