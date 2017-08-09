@@ -40,9 +40,9 @@
     "jquery": "^2.2.4",
     "lokijs": "^1.4.1",
     "moment": "^2.17.0",
-    "node-uuid": "^1.4.7",
     "requirejs": "^2.3.2",
-    "text": "github:requirejs/text#latest"
+    "text": "github:requirejs/text#latest",
+    "uuid": "^3.1.0"
   },
   "peerDependencies": {},
   "devDependencies": {
@@ -55,6 +55,7 @@
     "@types/lokijs": "^1.2.30",
     "@types/moment": "^2.13.0",
     "@types/node": "^6.0.85",
+    "@types/uuid": "^3.4.0",
     "@types/wallabyjs": "0.0.6",
     "aurelia-cli": "^0.30.1",
     "aurelia-testing": "^1.0.0-beta.3.0.1",
