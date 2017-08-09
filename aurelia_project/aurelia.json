@@ -62,7 +62,6 @@
           "aurelia-templating",
           "aurelia-templating-binding",
           "moment",
-          "node-uuid",
           "text",
           {
             "name": "aurelia-dialog",
@@ -99,6 +98,11 @@
             "name": "loki-indexed-adapter",
             "path": "../node_modules/lokijs/src",
             "main": "loki-indexed-adapter"
+          },
+          {
+            "name": "uuid",
+            "path": "../node_modules/uuid",
+            "main": "uuid"
           }
         ]
       }
