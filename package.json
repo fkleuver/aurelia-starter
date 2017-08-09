@@ -35,7 +35,7 @@
     "aurelia-templating-resources": "^1.1.1",
     "aurelia-templating-router": "^1.0.0",
     "aurelia-ux": "^0.1.14",
-    "bluebird": "^3.4.6",
+    "bluebird": "^3.5.0",
     "gsap": "^1.19.0",
     "jquery": "^2.2.4",
     "lokijs": "^1.4.1",
@@ -48,6 +48,7 @@
   "devDependencies": {
     "@types/applicationinsights": "^0.15.33",
     "@types/applicationinsights-js": "^1.0.4",
+    "@types/bluebird": "^3.5.8",
     "@types/greensock": "^1.15.32",
     "@types/jasmine": "^2.5.53",
     "@types/jquery": "^3.2.11",
