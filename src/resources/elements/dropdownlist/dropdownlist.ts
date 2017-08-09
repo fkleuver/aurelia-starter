@@ -1,5 +1,4 @@
 import { bindable, observable, DOM, inject, TaskQueue, PLATFORM, bindingMode } from "aurelia-framework";
-import * as Bluebird from "bluebird";
 import * as Types from "../../../core/types";
 
 type option = { displayName: string, selected: boolean };
