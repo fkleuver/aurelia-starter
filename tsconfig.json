@@ -9,16 +9,17 @@
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "allowJs": true,
     "moduleResolution": "node",
     "lib": ["es2015", "dom"]
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "aurelia_project"
   ],
   "filesGlob": [
     "./src/**/*.ts",
     "./test/**/*.ts",
-    "./typings/index.d.ts",
     "./custom_typings/**/*.d.ts"
   ],
   "atom": {

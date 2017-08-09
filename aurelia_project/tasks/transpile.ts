@@ -36,7 +36,8 @@ function buildTypeScript() {
   return eventStream.merge(dts, src)
     .pipe(plumber())
     .pipe(sourcemaps.init())
-    .pipe(ts(typescriptCompiler))
+    .pipe(typescriptCompiler())
+    .pipe(sourcemaps.write({ sourceRoot: 'src' }))
     .pipe(build.bundle())
     .on('error', util.log);
 }
