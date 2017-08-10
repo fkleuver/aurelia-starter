@@ -1,20 +1,51 @@
+import { bindable, DOM, inject, TaskQueue, PLATFORM, bindingMode } from "aurelia-framework";
+import { Router, RouterConfiguration, RouteConfig, NavigationInstruction } from "aurelia-router";
+import { Logger } from "aurelia-logging";
+import { EventAggregator } from "aurelia-event-aggregator";
+
+const logger: Logger = PLATFORM.global.getLogger("frontend");
+
+@inject(DOM.Element, TaskQueue, EventAggregator, Router)
 export class Frontend {
-    optionsFew = [
-        { displayName: "Foo 1", value: 1 },
-        { displayName: "Bar 1", value: 2 },
-        { displayName: "Baz 2", value: 3 },
-        { displayName: "Qux 2", value: 4 }
-    ];
-    optionsMany = [
-        { displayName: "Foo 1", value: 1 },
-        { displayName: "Bar 1", value: 2 },
-        { displayName: "Baz 2", value: 3 },
-        { displayName: "Qux 2", value: 4 },
-        { displayName: "Quux 1", value: 5 },
-        { displayName: "Quuz 1", value: 6 },
-        { displayName: "Corge 2", value: 7 },
-        { displayName: "Grault 2", value: 8 },
-        { displayName: "Garply 1", value: 9 },
-        { displayName: "Waldo 1", value: 10 }
-    ];
+    
+    /*
+    *   BEHAVIOR LIFECYCLE
+    */
+    constructor(
+        public element: HTMLElement,
+        private tq: TaskQueue,
+        private ea: EventAggregator,
+        public router: Router) {
+
+        logger.debug("constructor", element);
+    }
+
+    public created() {
+        logger.debug("created");
+    }
+
+    public bind(bindingContext: any, overrideContext: any): void {
+        logger.debug("bind", bindingContext, overrideContext);
+    }
+
+    public attached(): void {
+        logger.debug("attached");
+    }
+
+    public detached(): void {
+        logger.debug("detached");
+    }
+
+    public unbind(): void {
+        logger.debug("unbind");
+    }
+
+    public activate(): void {
+        logger.debug("activate");
+    }
+
+    public deactivate(): void {
+        logger.debug("deactivate");
+    }
+
 }
