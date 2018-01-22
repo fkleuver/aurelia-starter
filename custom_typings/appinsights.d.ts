@@ -1,1 +1,0 @@
-declare var appInsights: Microsoft.ApplicationInsights.IAppInsights;
