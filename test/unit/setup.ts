@@ -10,8 +10,6 @@ configure();
 
 console.log(PLATFORM.global.Promise.version);
 
-PLATFORM.global.Bluebird = PLATFORM.global.Promise;
-
 Log.addAppender({
     debug(logger: Log.Logger, ...rest: any[]): void {
         console.log(`--------------- DEBUG [${logger.id}] ---------------\n----------------------------`, ...rest);
