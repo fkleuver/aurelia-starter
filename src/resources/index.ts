@@ -9,12 +9,10 @@ export function configure(config: FrameworkConfiguration, env) {
         "./value-converters/console-debug",
         "./value-converters/except",
         "./value-converters/filter",
-        "./value-converters/format-date",
         "./value-converters/math",
         "./value-converters/parse-boolean",
         "./value-converters/parse-json",
         "./value-converters/parse-number",
-        "./value-converters/sort",
         "./value-converters/take"
     ]);
 }
