@@ -1,4 +1,5 @@
 import "aurelia-logging";
+import "jquery";
 import { Aurelia, PLATFORM, DOM } from "aurelia-framework"
 import env from "./environment";
 
