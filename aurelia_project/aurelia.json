@@ -85,16 +85,6 @@
             "path": "../node_modules/aurelia-testing/dist/amd",
             "main": "aurelia-testing",
             "env": "dev"
-          },
-          {
-            "name": "lokijs",
-            "path": "../node_modules/lokijs/src",
-            "main": "lokijs"
-          },
-          {
-            "name": "loki-indexed-adapter",
-            "path": "../node_modules/lokijs/src",
-            "main": "loki-indexed-adapter"
           }
         ]
       }

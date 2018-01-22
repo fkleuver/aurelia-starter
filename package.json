@@ -37,7 +37,6 @@
     "aurelia-ux": "^0.3.0",
     "bluebird": "^3.5.0",
     "jquery": "^2.2.4",
-    "lokijs": "^1.5.0",
     "moment": "^2.18.1",
     "node-uuid": "^1.4.8",
     "requirejs": "^2.3.4",
@@ -47,7 +46,6 @@
   "devDependencies": {
     "@types/jasmine": "^2.5.53",
     "@types/jquery": "^3.2.11",
-    "@types/lokijs": "^1.2.30",
     "@types/moment": "^2.13.0",
     "@types/node": "^6.0.85",
     "@types/wallabyjs": "0.0.6",
