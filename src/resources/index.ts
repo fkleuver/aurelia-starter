@@ -5,7 +5,6 @@ export function configure(config: FrameworkConfiguration, env) {
         "./binding-behaviors/intercept",
 
         "./elements/dynamic-html",
-        "./elements/dropdownlist/dropdownlist",
 
         "./value-converters/console-debug",
         "./value-converters/except",

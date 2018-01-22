@@ -31,10 +31,6 @@
         "name": "vendor-bundle.js",
         "prepend": [
           "node_modules/jquery/dist/jquery.min.js",
-          "node_modules/gsap/src/minified/TweenMax.min.js",
-          "node_modules/gsap/src/minified/plugins/ScrollToPlugin.min.js",
-          "node_modules/gsap/src/minified/utils/Draggable.min.js",
-          "node_modules/gsap/src/minified/jquery.gsap.min.js",
           "node_modules/bluebird/js/browser/bluebird.js",
           "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird.js",
           "node_modules/requirejs/require.js"
