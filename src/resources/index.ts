@@ -1,18 +1,9 @@
 import { FrameworkConfiguration } from "aurelia-framework";
+import { PLATFORM } from "aurelia-pal";
 
-export function configure(config: FrameworkConfiguration, env) {
-    config.globalResources([
-        "./binding-behaviors/intercept",
-
-        "./elements/dynamic-html",
-
-        "./value-converters/console-debug",
-        "./value-converters/except",
-        "./value-converters/filter",
-        "./value-converters/math",
-        "./value-converters/parse-boolean",
-        "./value-converters/parse-json",
-        "./value-converters/parse-number",
-        "./value-converters/take"
-    ]);
+export function configure(fxconfig: FrameworkConfiguration): void {
+  fxconfig.feature(PLATFORM.moduleName("resources/attributes/index"));
+  fxconfig.feature(PLATFORM.moduleName("resources/value-converters/index"));
+  fxconfig.feature(PLATFORM.moduleName("resources/binding-behaviors/index"));
+  fxconfig.feature(PLATFORM.moduleName("resources/elements/index"));
 }

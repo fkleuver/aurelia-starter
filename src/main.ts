@@ -1,27 +1,24 @@
 import "aurelia-logging";
 import "jquery";
-import { Aurelia, PLATFORM, DOM } from "aurelia-framework"
 import env from "./environment";
+import { Aurelia } from "aurelia-framework";
+import { PLATFORM } from "aurelia-pal";
 
-export function configure(aurelia: Aurelia) {
-  aurelia.use
-    .defaultBindingLanguage()
-    .defaultResources()
-    .eventAggregator()
-    .router()
-    .history()
-    .developmentLogging()
-    .feature("plugins", env)
-    .feature("core", env)
-    .feature("resources", env)
-    .feature("shell", env);
+export async function configure(au: Aurelia): Promise<void> {
+  if (env.debug || env.testing) {
+    PLATFORM.global.au = au;
+  }
 
-  aurelia.start()
-    .then(au => {
-      const host = au.host;
-      const root = host.attributes["root"].value;
+  au.use.defaultBindingLanguage();
+  au.use.defaultResources();
+  au.use.eventAggregator();
+  au.use.router();
+  au.use.history();
 
-      au.setRoot(root, host);
-      PLATFORM.global.au = au;
-    });
+  au.use.feature(PLATFORM.moduleName("plugins/index"));
+  au.use.feature(PLATFORM.moduleName("resources/index"));
+
+  await au.start();
+
+  await au.setRoot("routes/main/app", au.host);
 }
