@@ -33,11 +33,12 @@ function buildTypeScript() {
 
   return eventStream
     .merge(dts, src)
-    .pipe(plumber({ errorHandler: util.log }))
+    .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(typescriptCompiler())
     .pipe(sourcemaps.write({ sourceRoot: "src" }))
-    .pipe(build.bundle());
+    .pipe(build.bundle())
+    .on("error", util.log)
 }
 
 export default gulp.series(configureEnvironment, buildTypeScript);
