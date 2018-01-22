@@ -5,6 +5,5 @@ export function configure(config: FrameworkConfiguration, env) {
         .feature("plugins/aurelia", env)
         .feature("plugins/computed-observation-adapter", {
             enableLogging: env.debug
-        })
-        .feature("plugins/node-uuid", env);
+        });
 }

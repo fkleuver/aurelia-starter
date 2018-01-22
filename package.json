@@ -37,7 +37,6 @@
     "aurelia-ux": "^0.3.0",
     "bluebird": "^3.5.0",
     "jquery": "^2.2.4",
-    "node-uuid": "^1.4.8",
     "requirejs": "^2.3.4",
     "text": "github:requirejs/text#latest"
   },
