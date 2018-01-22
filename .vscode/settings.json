@@ -7,8 +7,8 @@
     "**/bower_components": true,
     "**/scripts": true,
     "**/typings": true,
-    "**/custom_typings": true,
-    "**/aurelia_project": true,
+    "**/custom_typings": false,
+    "**/aurelia_project": false,
     "**/.vscode": true,
     "**/.eyeglass_cache": true
   }
