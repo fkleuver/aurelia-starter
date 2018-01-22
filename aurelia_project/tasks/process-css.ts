@@ -1,6 +1,7 @@
 import * as gulp from "gulp";
 import * as sourcemaps from "gulp-sourcemaps";
 import * as sass from "gulp-sass";
+import * as prefix from "gulp-autoprefixer";
 import * as project from "../aurelia.json";
 import { build } from "aurelia-cli";
 
@@ -9,5 +10,6 @@ export default function processCSS() {
     .src(project.cssProcessor.source)
     .pipe(sourcemaps.init())
     .pipe(sass().on("error", sass.logError))
+    .pipe(prefix({ browsers: ["last 2 versions"] }))
     .pipe(build.bundle());
 }
