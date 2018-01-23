@@ -32,9 +32,9 @@ export default class ElementGenerator {
   }
 
   generateJSSource(className) {
-    return `export class ${className} {    
+    return `export class ${className} {
   message: string;
-  
+
   constructor() {
     this.message = 'Hello world';
   }
