@@ -1,10 +1,21 @@
 {
   "recommendations": [
+    "alefragnani.project-manager",
     "AureliaEffect.aurelia",
-    "msjsdiag.debugger-for-chrome",
-    "steoates.autoimport",
-    "EditorConfig.EditorConfig",
+    "behzad88.Aurelia",
+    "bierner.color-info",
     "christian-kohler.path-intellisense",
-    "behzad88.Aurelia"
+    "chrmarti.regex",
+    "cssho.vscode-svgviewer",
+    "deerawan.vscode-faker",
+    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode",
+    "joelday.docthis",
+    "msjsdiag.debugger-for-chrome",
+    "pranaygp.vscode-css-peek",
+    "steoates.autoimport",
+    "WallabyJs.quokka-vscode",
+    "wayou.vscode-todo-highlight",
+    "wmaurer.change-case"
   ]
 }
