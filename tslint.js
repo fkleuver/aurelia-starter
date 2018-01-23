@@ -207,7 +207,7 @@ module.exports = {
       "no-unnecessary-semicolons": true,
       "object-literal-key-quotes": [true, "as-needed"],
       "one-line": [true, "check-open-brace", "check-catch", "check-else", "check-whitespace"],
-      "quotemark": [true, "single"],
+      "quotemark": [true, "double"],
       "semicolon": [true, "always"],
       "space-within-parens": true,
       "trailing-comma": [true, {"singleline": "never", "multiline": "never"}], // forcing trailing commas for multi-line
