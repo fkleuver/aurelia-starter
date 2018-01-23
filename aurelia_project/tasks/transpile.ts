@@ -6,7 +6,7 @@ import * as notify from "gulp-notify";
 import * as rename from "gulp-rename";
 import * as ts from "gulp-typescript";
 import * as util from "gulp-util";
-import * as project from "../aurelia.json";
+import { project } from "../aurelia";
 import { CLIOptions, build } from "aurelia-cli";
 import * as eventStream from "event-stream";
 

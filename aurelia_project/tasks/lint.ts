@@ -1,6 +1,6 @@
 import * as gulp from "gulp";
 import tslint from "gulp-tslint";
-import * as project from "../aurelia.json";
+import { project } from "../aurelia";
 
 export default function lint() {
   return gulp

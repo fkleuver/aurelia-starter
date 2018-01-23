@@ -2,7 +2,7 @@ import * as gulp from "gulp";
 import * as path from "path";
 import * as minimatch from "minimatch";
 import * as changedInPlace from "gulp-changed-in-place";
-import * as project from "../aurelia.json";
+import { project } from "../aurelia";
 
 export default function copyFiles(done) {
   if (typeof project.build.copyFiles !== "object") {

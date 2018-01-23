@@ -3,7 +3,7 @@ import * as minimatch from "minimatch";
 import * as gulpWatch from "gulp-watch";
 import * as debounce from "debounce";
 import { build } from "aurelia-cli";
-import * as project from "../aurelia.json";
+import { project } from "../aurelia";
 import transpile from "./transpile";
 import processMarkup from "./process-markup";
 import processCSS from "./process-css";

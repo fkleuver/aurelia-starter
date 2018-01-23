@@ -2,7 +2,7 @@ import * as gulp from "gulp";
 import * as browserSync from "browser-sync";
 import * as historyApiFallback from "connect-history-api-fallback/lib";
 import { CLIOptions } from "aurelia-cli";
-import * as project from "../aurelia.json";
+import { project } from "../aurelia";
 import build from "./build";
 import watch from "./watch";
 
