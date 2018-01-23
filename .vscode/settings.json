@@ -4,6 +4,11 @@
   "html.suggest.angular1": false,
   "html.suggest.ionic": false,
   "html.format.endWithNewline": true,
+  "tslint.configFile": "tslint.js",
+  "tslint.exclude": [
+    "**/aurelia_project/**",
+    "**/node_modules/**"
+  ],
   "emmet.triggerExpansionOnTab": true,
   "search.exclude": {
     "**/node_modules": true,

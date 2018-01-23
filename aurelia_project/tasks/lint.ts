@@ -7,8 +7,10 @@ export default function lint() {
     .src([project.transpiler.source])
     .pipe(
       tslint({
-        tslint: require("tslint")
+        formatter: "prose"
       })
     )
-    .pipe(tslint.report("prose"));
+    .pipe(tslint.report({
+      emitError: false
+    }));
 }

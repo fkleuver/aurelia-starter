@@ -75,6 +75,7 @@
     "path": "^0.12.7",
     "through2": "^2.0.3",
     "tslint": "^5.9.1",
+    "tslint-microsoft-contrib": "^5.0.2",
     "typescript": "^2.6.2",
     "uglify-js": "^3.3.8",
     "vinyl-fs": "^2.4.4"
