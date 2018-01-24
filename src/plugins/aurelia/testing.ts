@@ -1,8 +1,8 @@
 import { FrameworkConfiguration } from "aurelia-framework";
-import env from "../../environment";
+import environment from "../../environment";
 
 export function configure(fxconfig: FrameworkConfiguration): void {
-  if (env.testing) {
+  if (environment.testing) {
     fxconfig.plugin("aurelia-testing");
   }
 }

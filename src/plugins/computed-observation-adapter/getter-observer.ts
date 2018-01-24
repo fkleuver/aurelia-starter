@@ -1,20 +1,47 @@
-
+import {
+  connectable,
+  createOverrideContext,
+  Expression,
+  InternalPropertyObserver,
+  ObserverLocator,
+  subscriberCollection
+} from "aurelia-binding";
 import { getLogger, Logger } from "aurelia-logging";
-import { connectable, subscriberCollection, createOverrideContext } from "aurelia-binding";
 
-const valueConverterLookupFunction = () => null;
+const valueConverterLookupFunction = (): any => {
+  return null;
+};
 
+/**
+ * InternalPropertyObserver implementation that observes a property getter
+ */
+//tslint:disable:no-unsafe-any
 @(connectable as any)()
 @subscriberCollection()
-export class GetterObserver {
-  public obj: any;
+//tslint:enable:no-unsafe-any
+export class GetterObserver implements InternalPropertyObserver {
+  public obj: { [name: string]: any };
   public scope: { bindingContext: any; overrideContext: any };
   public propertyName: string;
-  public descriptor: any;
-  public expression: any;
-  public observerLocator: any;
+  public descriptor: PropertyDescriptor;
+  public expression: Expression;
+  public observerLocator: ObserverLocator;
 
-  constructor(obj, propertyName, descriptor, expression, observerLocator) {
+  private addSubscriber: (context?: any, callable?: any) => void;
+  private removeSubscriber: (context?: any, callable?: any) => boolean;
+  private callSubscribers: (newValue: any, oldValue: any) => void;
+  private hasSubscribers: () => boolean;
+  private oldValue: any;
+  private unobserve: (something: boolean) => void;
+  private version: number;
+
+  constructor(
+    obj: { [name: string]: any },
+    propertyName: string,
+    descriptor: PropertyDescriptor,
+    expression: Expression,
+    observerLocator: ObserverLocator
+  ) {
     this.obj = obj;
     const bindingContext = { this: obj };
     const overrideContext = createOverrideContext(bindingContext);
@@ -30,7 +57,7 @@ export class GetterObserver {
   }
 
   public setValue(newValue: any): void {
-    if (this.descriptor.set) {
+    if (this.descriptor.set !== undefined && this.descriptor.set !== null) {
       this.obj[this.propertyName] = newValue;
     } else {
       const msg = `${this.propertyName} does not have a setter function.`;
@@ -39,27 +66,20 @@ export class GetterObserver {
     }
   }
 
-  private hasSubscribers: (context?: any, callable?: any) => boolean;
-  private oldValue: any;
-  private addSubscriber: (context?: any, callable?: any) => void;
-  public subscribe(context, callable): void {
+  public subscribe(contextOrCallback: any, callable?: any): void {
     if (!this.hasSubscribers()) {
       this.oldValue = this.obj[this.propertyName];
-      this.expression.connect(this, this.scope);
+      this.expression.connect(this as any, this.scope);
     }
-    this.addSubscriber(context, callable);
+    this.addSubscriber(contextOrCallback, callable);
   }
 
-  private removeSubscriber: (context?: any, callable?: any) => boolean;
-  private unobserve: (something: boolean) => void;
-  public unsubscribe(context, callable): void {
-    if (this.removeSubscriber(context, callable) && !this.hasSubscribers(context, callable)) {
+  public unsubscribe(contextOrCallback: any, callable?: any): void {
+    if (this.removeSubscriber(contextOrCallback, callable) && !this.hasSubscribers()) {
       this.unobserve(true);
     }
   }
 
-  private callSubscribers: (newValue: any, oldValue: any) => void;
-  private version: number;
   public call(): void {
     const newValue = this.obj[this.propertyName];
     const oldValue = this.oldValue;
@@ -68,7 +88,7 @@ export class GetterObserver {
       this.callSubscribers(newValue, oldValue);
     }
     this.version++;
-    this.expression.connect(this, this.scope);
+    this.expression.connect(this as any, this.scope);
     this.unobserve(false);
   }
 

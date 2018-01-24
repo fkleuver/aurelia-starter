@@ -1,11 +1,10 @@
-import "aurelia-logging";
-import env from "./environment";
 import { Aurelia } from "aurelia-framework";
 import { PLATFORM } from "aurelia-pal";
+import environment from "./environment";
 
 export async function configure(au: Aurelia): Promise<void> {
-  if (env.debug || env.testing) {
-    PLATFORM.global.au = au;
+  if (environment.debug || environment.testing) {
+    ((PLATFORM.global as Window) as any) = au;
   }
 
   au.use.defaultBindingLanguage();

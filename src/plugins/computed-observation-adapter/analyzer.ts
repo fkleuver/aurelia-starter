@@ -1,4 +1,20 @@
-export class Analyzer {
+import {
+  AccessKeyed,
+  AccessMember,
+  AccessScope,
+  Binary,
+  CallMember,
+  Conditional,
+  Expression,
+  ExpressionVisitor,
+  LiteralPrimitive,
+  LiteralString
+} from "aurelia-binding";
+
+/**
+ * ExpressionVisitor that analyzes the function body of a property getter, and determines if it can be observed without dirty-checking
+ */
+export class Analyzer implements ExpressionVisitor {
   public canObserve: boolean;
   public reason: string;
 
@@ -7,9 +23,10 @@ export class Analyzer {
     this.reason = "";
   }
 
-  public static analyze(expression) {
+  public static ANALYZE(expression: Expression): { expression: Expression; canObserve: boolean; reason: string } {
     const visitor = new Analyzer();
     expression.accept(visitor);
+
     return {
       expression,
       canObserve: visitor.canObserve,
@@ -17,103 +34,97 @@ export class Analyzer {
     };
   }
 
-  public visitArgs(args): void {
-    for (let i = 0, length = args.length; i < length; ++i) {
-      args[i].accept(this);
+  public visitArgs(args: Expression[]): void {
+    for (const arg of args) {
+      arg.accept(this);
     }
   }
 
-  public visitChain(chain): void {
-    const expressions = chain.expressions;
-
-    for (let i = 0, length = expressions.length; i < length; ++i) {
-      expressions[i].accept(this);
+  public visitChain(chain: { expressions: Expression[] }): void {
+    for (const expression of chain.expressions) {
+      expression.accept(this);
     }
   }
 
-  public visitValueConverter(converter): void {
+  public visitValueConverter(_: Expression): void {
     // this should never happen.
   }
 
-  public visitBindingBehavior(behavior): void {
+  public visitBindingBehavior(_: Expression): void {
     // this should never happen.
   }
 
-  public visitAssign(assign): void {
+  public visitAssign(assign: { target: Expression; value: Expression }): void {
     assign.target.accept(this);
     assign.value.accept(this);
   }
 
-  public visitConditional(conditional): void {
+  public visitConditional(conditional: Conditional): void {
     conditional.condition.accept(this);
     conditional.yes.accept(this);
     conditional.no.accept(this);
   }
 
-  public visitAccessThis(access): void {
+  public visitAccessThis(_: Expression): void {
     // this should never happen.
   }
 
-  public visitAccessScope(access): void {
+  public visitAccessScope(access: AccessScope): void {
     if (access.name !== "this") {
       this.canObserve = false;
       this.reason += `"${access.name}" can't be accessed from the binding scope.  `;
     }
   }
 
-  public visitAccessMember(access): void {
+  public visitAccessMember(access: AccessMember): void {
     access.object.accept(this);
   }
 
-  public visitAccessKeyed(access): void {
+  public visitAccessKeyed(access: AccessKeyed): void {
     access.object.accept(this);
     access.key.accept(this);
   }
 
-  public visitCallScope(call): void {
+  public visitCallScope(call: { args: Expression[] }): void {
     this.visitArgs(call.args);
   }
 
-  public visitCallFunction(call): void {
+  public visitCallFunction(call: { func: Expression; args: Expression[] }): void {
     call.func.accept(this);
     this.visitArgs(call.args);
   }
 
-  public visitCallMember(call): void {
+  public visitCallMember(call: CallMember): void {
     call.object.accept(this);
     this.visitArgs(call.args);
   }
 
-  public visitPrefix(prefix): void {
+  public visitPrefix(prefix: { expression: Expression }): void {
     prefix.expression.accept(this);
   }
 
-  public visitBinary(binary): void {
+  public visitBinary(binary: Binary): void {
     binary.left.accept(this);
     binary.right.accept(this);
   }
 
-  public visitLiteralPrimitive(literal): void {
+  public visitLiteralPrimitive(_: LiteralPrimitive): void {
     return;
   }
 
-  public visitLiteralArray(literal): void {
-    const elements = literal.elements;
-    for (let i = 0, length = elements.length; i < length; ++i) {
-      elements[i].accept(this);
+  public visitLiteralArray(literal: { elements: Expression[] }): void {
+    for (const element of literal.elements) {
+      element.accept(this);
     }
   }
 
-  public visitLiteralObject(literal): void {
-    const keys = literal.keys;
-    const values = literal.values;
-
-    for (let i = 0, length = keys.length; i < length; ++i) {
-      values[i].accept(this);
+  public visitLiteralObject(literal: { values: Expression[] }): void {
+    for (const value of literal.values) {
+      value.accept(this);
     }
   }
 
-  public visitLiteralString(literal): void {
+  public visitLiteralString(_: LiteralString): void {
     return;
   }
 }

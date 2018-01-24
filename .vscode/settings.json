@@ -1,10 +1,10 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "tslint.nodePath": "./node_modules/tslint/bin/tslint",
   "html.suggest.angular1": false,
   "html.suggest.ionic": false,
   "html.format.endWithNewline": true,
-  "tslint.configFile": "tslint.js",
   "tslint.exclude": [
     "**/aurelia_project/**",
     "**/node_modules/**"

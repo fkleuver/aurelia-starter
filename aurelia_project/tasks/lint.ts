@@ -1,16 +1,22 @@
 import * as gulp from "gulp";
-import tslint from "gulp-tslint";
+import gulpTslint from "gulp-tslint";
+import * as tslint from "tslint";
 import { project } from "../aurelia";
 
 export default function lint() {
+  const program = tslint.Linter.createProgram("./tsconfig.json");
+
   return gulp
-    .src([project.transpiler.source])
+    .src([project.transpiler.source], { base: "." })
     .pipe(
-      tslint({
-        formatter: "prose"
+      gulpTslint({
+        formatter: "prose",
+        program
       })
     )
-    .pipe(tslint.report({
-      emitError: false
-    }));
+    .pipe(
+      gulpTslint.report({
+        emitError: false
+      })
+    );
 }
