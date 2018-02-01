@@ -1,3 +1,6 @@
 # Only ignore these folders from the project root. We like being explicit and intentional about where we put things, right?
 /node_modules
 /scripts
+
+# Ignore this until it actually works reliably
+package-lock.json
