@@ -5,7 +5,7 @@ import * as sourcemaps from "gulp-sourcemaps";
 import * as notify from "gulp-notify";
 import * as rename from "gulp-rename";
 import * as ts from "gulp-typescript";
-import * as util from "gulp-util";
+import * as log from "fancy-log";
 import { project } from "../aurelia";
 import { CLIOptions, build } from "aurelia-cli";
 import * as eventStream from "event-stream";
@@ -38,7 +38,7 @@ function buildTypeScript() {
     .pipe(typescriptCompiler())
     .pipe(sourcemaps.write({ sourceRoot: "src" }))
     .pipe(build.bundle())
-    .on("error", util.log)
+    .on("error", log)
 }
 
 export default gulp.series(configureEnvironment, buildTypeScript);
